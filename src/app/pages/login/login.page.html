@@ -1,0 +1,34 @@
+<div class="container">
+
+    <div class="modal">
+
+        <!-- Left -->
+        <div class="left">
+            <form class="form" (ngSubmit)="login()">
+                <mat-form-field class="field">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" [(ngModel)]="user.email" [formControl]="emailFormControl" [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">Please enter a valid email address</mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">Email is <strong>required</strong></mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="field">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" [(ngModel)]="user.password" [formControl]="passwordFormControl">
+                    <mat-error *ngIf="emailFormControl.hasError('required')">Password is <strong>required</strong></mat-error>
+                </mat-form-field>
+
+                <mat-error *ngIf="error">{{ error }}</mat-error>
+                
+                <!-- <input type="submit" value="login"> -->
+                <button class="submit" mat-flat-button color="primary">Login</button>
+              </form>
+        </div>
+
+        <!-- Right -->
+        <div class="right">
+            <img src="assets/img/logo.png" width="300" alt="">
+        </div>
+    </div>
+
+</div>
